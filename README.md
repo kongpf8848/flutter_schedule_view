@@ -162,7 +162,18 @@
 ```
 
 ## 属性说明
-| 字段  | 类型  | 备注  |
-|:----------|:----------|:----------|
-| `date`    | DateTime  | 显示的日期  |
+| 字段  | 类型         | 备注      |
+|:----------|:-----------|:--------|
+| `date`    | DateTime   | 显示的日期   |
+| `initialTime`    | HourMinute | 开始时间    |
+| `userZoomable`    | bool       | 是否缩放    |
+| `events`    | List<FlutterWeekViewEvent>       | 事件列表    |
+| `style`    | DayViewStyle       | 控件整体风格  |
+| `hoursColumnStyle`    | HoursColumnStyle       | 左边的小时风格 |
+| `dragAndDropOptions`    | DragAndDropOptions       | 拖放选项    |
+| `resizeEventOptions`    | ResizeEventOptions       | 拖拽选项    |
+| `dragPredicate`    | Function       | 是否可以拖放  |
+| `resizePredicate`    | Function       | 是否可以拖拽  |
+| `onBackgroundTappedDown`    | Function       | 背景点击事件  |
+
 
