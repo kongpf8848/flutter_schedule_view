@@ -1,5 +1,5 @@
 name: flutter_week_view_example
-description: Demonstrates how to use the flutter_week_view plugin.
+description: Demonstrates how to use the flutter_schedule_view library.
 publish_to: 'none'
 
 environment:
