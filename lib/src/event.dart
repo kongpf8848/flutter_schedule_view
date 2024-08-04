@@ -13,7 +13,7 @@ typedef EventOnTap = void Function(FlutterWeekViewEvent event);
 
 typedef DecorationBuilder = BoxDecoration Function();
 
-typedef TextStyleBuilder= TextStyle Function();
+typedef TextStyleBuilder = TextStyle Function();
 
 /// Represents a flutter week view event.
 class FlutterWeekViewEvent implements Comparable<FlutterWeekViewEvent> {
@@ -56,21 +56,21 @@ class FlutterWeekViewEvent implements Comparable<FlutterWeekViewEvent> {
   final bool isNewEvent;
 
   /// Creates a new flutter week view event instance.
-  FlutterWeekViewEvent({
-    required this.title,
-    required this.description,
-    required DateTime start,
-    required DateTime end,
-    this.backgroundColor = const Color(0xCC2196F3),
-    this.decoration,
-    this.textStyle,
-    this.padding = const EdgeInsets.all(10),
-    this.margin,
-    this.onTap,
-    this.onLongPress,
-    this.eventTextBuilder,
-    this.isNewEvent = false
-  })  : start = start.yearMonthDayHourMinute,
+  FlutterWeekViewEvent(
+      {required this.title,
+      required this.description,
+      required DateTime start,
+      required DateTime end,
+      this.backgroundColor = const Color(0xCC2196F3),
+      this.decoration,
+      this.textStyle,
+      this.padding = const EdgeInsets.all(10),
+      this.margin,
+      this.onTap,
+      this.onLongPress,
+      this.eventTextBuilder,
+      this.isNewEvent = false})
+      : start = start.yearMonthDayHourMinute,
         end = end.yearMonthDayHourMinute;
 
   /// Builds the event widget.
@@ -116,8 +116,8 @@ class FlutterWeekViewEvent implements Comparable<FlutterWeekViewEvent> {
 
   @override
   int compareTo(FlutterWeekViewEvent other) {
-    if(isNewEvent != other.isNewEvent){
-      return isNewEvent ? 1: -1;
+    if (isNewEvent != other.isNewEvent) {
+      return isNewEvent ? 1 : -1;
     }
     int result = start.compareTo(other.start);
     if (result != 0) {
