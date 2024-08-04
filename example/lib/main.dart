@@ -53,12 +53,12 @@ class _FlutterWeekViewDemo extends StatelessWidget {
         backgroundColor: Theme.of(context).twColors.primaryBackgroundColor,
         appBar: AppBar(
           elevation: 0,
-          title: Text("Flutter Week View Demo"),
+          title: Text("flutter_schedule_view"),
           actions: [
             IconButton(
                 onPressed: () async {
                   Uri uri =
-                      Uri.parse('https://github.com/kongpf/FlutterWeekViewEx');
+                      Uri.parse('https://github.com/kongpf8848/flutter_schedule_view');
                   if (await launcher.canLaunchUrl(uri)) {
                     await launcher.launchUrl(uri);
                   }
