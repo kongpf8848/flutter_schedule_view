@@ -6,7 +6,7 @@
 
 | Drag & Resize | Light mode | Dark mode |
 | :-----: | :-----: | :-----: |
-|![https://github.com/kongpf8848/flutter_schedule_view/tree/master/screenshots/drag_and_resize.gif](https://github.com/kongpf8848/flutter_schedule_view/tree/master/screenshots/drag_and_resize.gif)|![https://github.com/kongpf8848/flutter_schedule_view/tree/master/screenshots/schedule_view_light.jpg](https://github.com/kongpf8848/flutter_schedule_view/tree/master/screenshots/schedule_view_light.jpg)|![https://github.com/kongpf8848/flutter_schedule_view/tree/master/screenshots/schedule_view_dark.jpg](https://github.com/kongpf8848/flutter_schedule_view/tree/master/screenshots/schedule_view_dark.jpg)|
+|![https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif](https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif)|![https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg](https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg)|![https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg](https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg)|
 
 ## 功能特点
 - 显示可自定义的时间表视图，用于管理任务和约会。
