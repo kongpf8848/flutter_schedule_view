@@ -1,4 +1,4 @@
-package fr.skyost.flutter_schedule_view_example
+package com.example.flutter_schedule_view_example
 
 import io.flutter.embedding.android.FlutterActivity
 
