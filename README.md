@@ -1,5 +1,7 @@
 # Flutter Schedule View
 
+一个高度可定制的日视图控件，可显示事件列表，支持拖拽、缩放等。
+
 ## 截图
 
 | Drag & Resize | Light mode | Dark mode |
