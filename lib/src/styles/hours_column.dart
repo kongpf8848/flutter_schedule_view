@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/src/styles/zoomable_header_widget.dart';
-import 'package:flutter_week_view/src/utils/builders.dart';
+import 'package:flutter_schedule_view/src/styles/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/src/utils/builders.dart';
 
 /// Allows to configure the hours column style.
 class HoursColumnStyle {

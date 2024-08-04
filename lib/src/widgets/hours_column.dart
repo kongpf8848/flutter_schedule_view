@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/flutter_schedule_view.dart';
-import 'package:flutter_week_view/src/styles/hours_column.dart';
-import 'package:flutter_week_view/src/utils/builders.dart';
-import 'package:flutter_week_view/src/utils/hour_minute.dart';
-import 'package:flutter_week_view/src/utils/text_utils.dart';
-import 'package:flutter_week_view/src/widgets/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/flutter_schedule_view.dart';
+import 'package:flutter_schedule_view/src/styles/hours_column.dart';
+import 'package:flutter_schedule_view/src/utils/builders.dart';
+import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
+import 'package:flutter_schedule_view/src/utils/text_utils.dart';
+import 'package:flutter_schedule_view/src/widgets/zoomable_header_widget.dart';
 
 /// A column which is showing a day hours.
 class HoursColumn extends StatelessWidget {

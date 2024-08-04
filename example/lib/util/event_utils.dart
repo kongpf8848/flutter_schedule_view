@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/flutter_schedule_view.dart';
-import 'package:flutter_week_view_example/theme/app_theme.dart';
-import 'package:flutter_week_view_example/util/utils.dart';
+import 'package:flutter_schedule_view/flutter_schedule_view.dart';
+import 'package:flutter_schedule_view_example/theme/app_theme.dart';
+import 'package:flutter_schedule_view_example/util/utils.dart';
 
 import '../theme/tw_colors.dart';
 

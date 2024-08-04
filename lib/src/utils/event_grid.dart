@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/src/event.dart';
-import 'package:flutter_week_view/src/styles/drag_and_drop.dart';
-import 'package:flutter_week_view/src/utils/hour_minute.dart';
-import 'package:flutter_week_view/src/widgets/day_view.dart';
+import 'package:flutter_schedule_view/src/event.dart';
+import 'package:flutter_schedule_view/src/styles/drag_and_drop.dart';
+import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
+import 'package:flutter_schedule_view/src/widgets/day_view.dart';
 
 /// An useful class that allows to position events in a grid.
 /// Thanks to https://stackoverflow.com/a/11323909/3608831.

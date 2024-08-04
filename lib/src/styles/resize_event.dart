@@ -1,4 +1,4 @@
-import 'package:flutter_week_view/src/event.dart';
+import 'package:flutter_schedule_view/src/event.dart';
 
 /// Triggered when the user performs a resize in an event. The [event]
 /// is the same original event, unchanged, while [newEndTime] contains the

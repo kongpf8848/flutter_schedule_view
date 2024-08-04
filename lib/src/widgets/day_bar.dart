@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/src/styles/day_bar.dart';
-import 'package:flutter_week_view/src/utils/utils.dart';
-import 'package:flutter_week_view/src/widgets/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/src/styles/day_bar.dart';
+import 'package:flutter_schedule_view/src/utils/utils.dart';
+import 'package:flutter_schedule_view/src/widgets/zoomable_header_widget.dart';
 
 /// A bar which is showing a day.
 class DayBar extends StatelessWidget {

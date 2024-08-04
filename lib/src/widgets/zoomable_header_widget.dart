@@ -1,15 +1,15 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/flutter_schedule_view.dart';
-import 'package:flutter_week_view/src/controller/zoom_controller.dart';
-import 'package:flutter_week_view/src/styles/day_view.dart';
-import 'package:flutter_week_view/src/styles/drag_and_drop.dart';
-import 'package:flutter_week_view/src/styles/hours_column.dart';
-import 'package:flutter_week_view/src/styles/resize_event.dart';
-import 'package:flutter_week_view/src/styles/zoomable_header_widget.dart';
-import 'package:flutter_week_view/src/utils/builders.dart';
-import 'package:flutter_week_view/src/utils/hour_minute.dart';
+import 'package:flutter_schedule_view/flutter_schedule_view.dart';
+import 'package:flutter_schedule_view/src/controller/zoom_controller.dart';
+import 'package:flutter_schedule_view/src/styles/day_view.dart';
+import 'package:flutter_schedule_view/src/styles/drag_and_drop.dart';
+import 'package:flutter_schedule_view/src/styles/hours_column.dart';
+import 'package:flutter_schedule_view/src/styles/resize_event.dart';
+import 'package:flutter_schedule_view/src/styles/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/src/utils/builders.dart';
+import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
 
 /// Allows to calculate a top offset from a given hour.
 typedef TopOffsetCalculator = double Function(HourMinute time);

@@ -1,4 +1,4 @@
-import 'package:flutter_week_view/src/controller/zoom_controller.dart';
+import 'package:flutter_schedule_view/src/controller/zoom_controller.dart';
 
 /// Allows to control some parameters of a day view.
 class DayViewController extends ZoomController {

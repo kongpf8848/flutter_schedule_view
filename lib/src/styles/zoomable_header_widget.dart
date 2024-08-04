@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/src/utils/hour_minute.dart';
+import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
 
 /// Returns a string from a specified date.
 typedef DateFormatter = String Function(int year, int month, int day);

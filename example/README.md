@@ -1,4 +1,4 @@
-# flutter_week_view_example
+# flutter_schedule_view_example
 
 A new Flutter project.
 

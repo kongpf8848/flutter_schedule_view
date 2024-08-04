@@ -2,20 +2,20 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/src/controller/day_view.dart';
-import 'package:flutter_week_view/src/event.dart';
-import 'package:flutter_week_view/src/styles/day_bar.dart';
-import 'package:flutter_week_view/src/styles/day_view.dart';
-import 'package:flutter_week_view/src/styles/hours_column.dart';
-import 'package:flutter_week_view/src/utils/builders.dart';
-import 'package:flutter_week_view/src/utils/callback_helpers.dart';
-import 'package:flutter_week_view/src/utils/event_grid.dart';
-import 'package:flutter_week_view/src/utils/hour_minute.dart';
-import 'package:flutter_week_view/src/utils/scroll.dart';
-import 'package:flutter_week_view/src/utils/utils.dart';
-import 'package:flutter_week_view/src/widgets/day_bar.dart';
-import 'package:flutter_week_view/src/widgets/hours_column.dart';
-import 'package:flutter_week_view/src/widgets/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/src/controller/day_view.dart';
+import 'package:flutter_schedule_view/src/event.dart';
+import 'package:flutter_schedule_view/src/styles/day_bar.dart';
+import 'package:flutter_schedule_view/src/styles/day_view.dart';
+import 'package:flutter_schedule_view/src/styles/hours_column.dart';
+import 'package:flutter_schedule_view/src/utils/builders.dart';
+import 'package:flutter_schedule_view/src/utils/callback_helpers.dart';
+import 'package:flutter_schedule_view/src/utils/event_grid.dart';
+import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
+import 'package:flutter_schedule_view/src/utils/scroll.dart';
+import 'package:flutter_schedule_view/src/utils/utils.dart';
+import 'package:flutter_schedule_view/src/widgets/day_bar.dart';
+import 'package:flutter_schedule_view/src/widgets/hours_column.dart';
+import 'package:flutter_schedule_view/src/widgets/zoomable_header_widget.dart';
 
 /// A (scrollable) day view which is able to display events, zoom and un-zoom and more !
 class DayView extends ZoomableHeadersWidget<DayViewStyle, DayViewController> {

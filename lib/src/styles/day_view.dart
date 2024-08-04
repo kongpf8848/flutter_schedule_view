@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/src/styles/zoomable_header_widget.dart';
-import 'package:flutter_week_view/src/utils/hour_minute.dart';
-import 'package:flutter_week_view/src/utils/utils.dart';
-import 'package:flutter_week_view/src/widgets/day_view.dart';
-import 'package:flutter_week_view/src/widgets/hours_column.dart';
-import 'package:flutter_week_view/src/widgets/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/src/styles/zoomable_header_widget.dart';
+import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
+import 'package:flutter_schedule_view/src/utils/utils.dart';
+import 'package:flutter_schedule_view/src/widgets/day_view.dart';
+import 'package:flutter_schedule_view/src/widgets/hours_column.dart';
+import 'package:flutter_schedule_view/src/widgets/zoomable_header_widget.dart';
 
 /// Allows to style a day view.
 class DayViewStyle extends ZoomableHeaderWidgetStyle {

@@ -1,5 +1,5 @@
-name: flutter_week_view
-description: Displays a highly customizable week view (or day view) which is able to display events, to be scrolled, to be zoomed-in & out and a lot more !
+name: flutter_schedule_view
+description: Displays a highly customizable schedule view which is able to display events, to be scrolled, to be zoomed-in & out and a lot more !
 version: 0.1.0
 homepage: https://github.com/kongpf8848/flutter_schedule_view
 

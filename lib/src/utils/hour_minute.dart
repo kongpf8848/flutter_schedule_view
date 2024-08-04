@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_week_view/src/utils/utils.dart';
+import 'package:flutter_schedule_view/src/utils/utils.dart';
 
 /// Simply represents a hour and a minute.
 /// This is not a duration but more of an instant in the current day.
