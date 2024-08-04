@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/flutter_week_view.dart';
+import 'package:flutter_week_view/flutter_schedule_view.dart';
 import 'package:flutter_week_view_example/theme/app_theme.dart';
 import 'package:flutter_week_view_example/util/event_utils.dart';
 import 'package:flutter_week_view_example/util/utils.dart';

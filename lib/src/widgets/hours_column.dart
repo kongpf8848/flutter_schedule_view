@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_week_view/flutter_week_view.dart';
+import 'package:flutter_week_view/flutter_schedule_view.dart';
 import 'package:flutter_week_view/src/styles/hours_column.dart';
 import 'package:flutter_week_view/src/utils/builders.dart';
 import 'package:flutter_week_view/src/utils/hour_minute.dart';
