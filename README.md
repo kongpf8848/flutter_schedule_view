@@ -2,6 +2,8 @@
 
 一个高度可定制的日视图控件，可显示事件列表，支持拖拽、缩放等。
 
+本项目的原始代码来自[FlutterWeekView](https://github.com/Skyost/FlutterWeekView)
+
 ## 截图
 <div>
   <img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif"  width="30%" height ="580">
@@ -121,4 +123,6 @@
 | `resizePredicate`    | Function       | 是否可以拖拽  |
 | `onBackgroundTappedDown`    | Function       | 背景点击事件  |
 
+## 感谢
+原始代码在这里[https://github.com/Skyost/FlutterWeekView](https://github.com/Skyost/FlutterWeekView)
 
