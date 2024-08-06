@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_schedule_view/flutter_schedule_view.dart';
 import 'package:flutter_schedule_view_example/theme/app_theme.dart';
