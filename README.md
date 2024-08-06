@@ -8,9 +8,9 @@
 
 <table> 
   <tr> 
-    <td><img src="https://github.com/kongpf8848/flutter_schedule_view/raw/master/screenshots/drag_and_resize.gif" alt="Drag and Resize" width="300"></td> 
-    <td><img src="https://github.com/kongpf8848/flutter_schedule_view/raw/master/screenshots/schedule_view_light.jpg" alt="Light Mode" width="300"></td> 
-    <td><img src="https://github.com/kongpf8848/flutter_schedule_view/raw/master/screenshots/schedule_view_dark.jpg" alt="Dark Mode" width="300"></td> 
+    <td><img src="https://github.com/kongpf8848/flutter_schedule_view/raw/master/screenshots/drag_and_resize.gif" alt="Drag and Resize" width="300" height="550"></td> 
+    <td><img src="https://github.com/kongpf8848/flutter_schedule_view/raw/master/screenshots/schedule_view_light.jpg" alt="Light Mode" width="300" height="550"></td> 
+    <td><img src="https://github.com/kongpf8848/flutter_schedule_view/raw/master/screenshots/schedule_view_dark.jpg" alt="Dark Mode" width="300" height="550"></td> 
   </tr> 
 </table>
 
