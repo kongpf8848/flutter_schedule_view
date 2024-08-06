@@ -4,11 +4,7 @@
 
 ## 截图
 
-|![https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif](https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif)|!
-
-| Light mode | Dark mode |
-| :-----: | :-----: |
-|![https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg](https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg)|![https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg](https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg)|
+<img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif"  width="280" height ="580"><img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg"  width="280" height ="580"><img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg"  width="280" height ="580">
 
 ## 功能特点
 - 显示可自定义的时间表视图，用于管理任务和约会。
@@ -21,69 +17,25 @@
 ## 使用
 ```dart
   DayView(
-      //当前显示日期
       date: DateTime.now(),
-      //开始时间
       initialTime: const HourMinute(hour: 6),
-      //是否缩放
       userZoomable: false,
-      //显示开始时间/结束时间
       showTimeRangeText: true,
-      //事件列表
       events: events,
-      //风格
       style: DayViewStyle(
-          backgroundColor: Theme
-              .of(context)
-              .twColors
-              .primaryBackgroundColor,
-          hourRowHeight: 60,
-          headerSize: 0,
-          backgroundRulesColor:
-          Theme
-              .of(context)
-              .twColors
-              .dividerBackgroundColor,
-          currentTimeRuleColor: Theme
-              .of(context)
-              .twColors
-              .primary,
-          currentTimeCircleColor: Theme
-              .of(context)
-              .twColors
-              .primary,
-          currentTimeCircleRadius: 5,
-          currentTimeRuleHeight: 1,
-          currentTimeCirclePosition: CurrentTimeCirclePosition.left,
-          currentTimeTextStyle: TextStyle(
-              color: Theme
-                  .of(context)
-                  .twColors
-                  .primary,
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              height: 1.5)),
-      //小时风格
+        ...
+      ),
       hoursColumnStyle: HoursColumnStyle(
         width: 55,
-        color: Theme
-            .of(context)
-            .twColors
-            .primaryBackgroundColor,
+        color: Colors.white,
         textAlignment: Alignment.center,
         textStyle: TextStyle(
-            color: Theme
-                .of(context)
-                .twColors
-                .secondTextColor,
+            color: Colors.black,
             fontSize: 12,
             fontWeight: FontWeight.w400,
             height: 1.5),
         timeRangeTextStyle: TextStyle(
-            color: Theme
-                .of(context)
-                .twColors
-                .primary,
+            color: Colors.blue,
             fontSize: 12,
             fontWeight: FontWeight.w400,
             height: 1.5),
@@ -105,30 +57,18 @@
         minimumEventDuration: const Duration(minutes: 30),
         onEventResizedUp:
             (FlutterWeekViewEvent event, DateTime newStartTime) {
-          debugPrint(
-              '+++++++++++++++onEventResizedUp:start:${event
-                  .start},newStartTime:${newStartTime}');
           event.start = newStartTime;
         },
         onEventResizeUpUpdate:
             (FlutterWeekViewEvent event, DateTime newStartTime) {
-          debugPrint(
-              '+++++++++++++++onEventResizeUpUpdate:start:${event
-                  .start},newStartTime:${newStartTime}');
           event.start = newStartTime;
         },
         onEventResizedDown:
             (FlutterWeekViewEvent event, DateTime newEndTime) {
-          debugPrint(
-              '+++++++++++++++onEventResized:end:${event
-                  .end},newEndTime:${newEndTime}');
           event.end = newEndTime;
         },
         onEventResizeDownUpdate:
             (FlutterWeekViewEvent event, DateTime newEndTime) {
-          debugPrint(
-              '+++++++++++++++onEventResizeUpdate:end:${event
-                  .end},newEndTime:${newEndTime}');
           event.end = newEndTime;
         },
       ),
