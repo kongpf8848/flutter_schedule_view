@@ -3,8 +3,11 @@
 一个高度可定制的日视图控件，可显示事件列表，支持拖拽、缩放等。
 
 ## 截图
-
-<img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif"  width="280" height ="580"><img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg"  width="280" height ="580"><img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg"  width="280" height ="580">
+<div>
+  <img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/drag_and_resize.gif"  width="30%" height ="580">
+  <img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_light.jpg"  width="30%" height ="580">
+  <img src="https://github.com/kongpf8848/flutter_schedule_view/blob/master/screenshots/schedule_view_dark.jpg"  width="30%" height ="580">
+</div>
 
 ## 功能特点
 - 显示可自定义的时间表视图，用于管理任务和约会。
