@@ -66,7 +66,7 @@ class _DynamicDayViewState extends State<DynamicDayView> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "光明顶大会议室",
+            "桃花岛大会议室",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Theme.of(context).twColors.primaryTextColor,
