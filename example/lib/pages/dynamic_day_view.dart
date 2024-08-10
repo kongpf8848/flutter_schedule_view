@@ -90,114 +90,175 @@ class _DynamicDayViewState extends State<DynamicDayView> {
 
   Widget _getScheduleView() {
     return DayView(
-      //显示日期
-      date: DateTime.now(),
-      initialTime: const HourMinute(hour: 6),
-      userZoomable: false,
-      showTimeRangeText: true,
-      //事件列表
-      events: events,
-      //风格
-      style: DayViewStyle(
-        //背景颜色
-        backgroundColor: Theme.of(context).twColors.primaryBackgroundColor,
-        //每个小时行高度
-        hourRowHeight: 60,
-        //分割线颜色
-        backgroundRulesColor: Theme.of(context).twColors.dividerBackgroundColor,
-        currentTimeRuleColor: Theme.of(context).twColors.primary,
-        currentTimeCircleColor: Theme.of(context).twColors.primary,
-        currentTimeCircleRadius: 5,
-        currentTimeRuleHeight: 1,
-        currentTimeCirclePosition: CurrentTimeCirclePosition.left,
-        currentTimeTextStyle: TextStyle(
-          color: Theme.of(context).twColors.primary,
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          height: 1.5,
-        ),
-      ),
-      //左侧时间文本风格
-      hoursColumnStyle: HoursColumnStyle(
-        width: 55,
-        color: Theme.of(context).twColors.primaryBackgroundColor,
-        textAlignment: Alignment.center,
-        textStyle: TextStyle(
-            color: Theme.of(context).twColors.secondTextColor,
+        //显示日期
+        date: DateTime.now(),
+        initialTime: const HourMinute(hour: 8),
+        userZoomable: false,
+        showTimeRangeText: true,
+        //事件列表
+        events: events,
+        //风格
+        style: DayViewStyle(
+          //背景颜色
+          backgroundColor: Theme.of(context).twColors.primaryBackgroundColor,
+          //每个小时行高度
+          hourRowHeight: 60,
+          //分割线颜色
+          backgroundRulesColor:
+              Theme.of(context).twColors.dividerBackgroundColor,
+          currentTimeRuleColor: Theme.of(context).twColors.primary,
+          currentTimeCircleColor: Theme.of(context).twColors.primary,
+          currentTimeCircleRadius: 5,
+          currentTimeRuleHeight: 1,
+          currentTimeCirclePosition: CurrentTimeCirclePosition.left,
+          currentTimeTextStyle: TextStyle(
+            color: Theme.of(context).twColors.primary,
             fontSize: 12,
             fontWeight: FontWeight.w400,
-            height: 1.5),
-        timeRangeTextStyle: TextStyle(
-          color: Theme.of(context).twColors.primary,
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          height: 1.5,
+            height: 1.5,
+          ),
         ),
-        interval: const Duration(hours: 1),
-      ),
-      //拖放选项
-      dragAndDropOptions: DragAndDropOptions(
-        startingGesture: isMobilePlatform()
-            ? DragStartingGesture.longPress
-            : DragStartingGesture.tap,
-        onEventDragged: (FlutterWeekViewEvent event, DateTime newStartTime) {
-          //处理拖拽逻辑
-          DateTime roundedTime = roundTimeToFitGrid(newStartTime,
-              gridGranularity: const Duration(minutes: 15));
-          event.shiftEventTo(roundedTime);
+        //左侧时间文本风格
+        hoursColumnStyle: HoursColumnStyle(
+          width: 55,
+          color: Theme.of(context).twColors.primaryBackgroundColor,
+          textAlignment: Alignment.center,
+          textStyle: TextStyle(
+              color: Theme.of(context).twColors.secondTextColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              height: 1.5),
+          timeRangeTextStyle: TextStyle(
+            color: Theme.of(context).twColors.primary,
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            height: 1.5,
+          ),
+          interval: const Duration(hours: 1),
+        ),
+        //拖放选项
+        dragAndDropOptions: DragAndDropOptions(
+          startingGesture: isMobilePlatform()
+              ? DragStartingGesture.longPress
+              : DragStartingGesture.tap,
+          onEventDragged: (FlutterWeekViewEvent event, DateTime dateTime) {
+            //处理拖拽逻辑
+            DateTime newStartTime = adjustDateTime(dateTime);
+            if (_canCreateEvent(newStartTime,
+                event.end.add(newStartTime.difference(event.start)))) {
+              event.shiftEventTo(newStartTime);
+            }
+          },
+        ),
+        //调整大小选项
+        resizeEventOptions: ResizeEventOptions(
+          minimumEventDuration: const Duration(minutes: 30),
+          //处理上拉逻辑
+          onEventResizedUp:
+              (FlutterWeekViewEvent event, DateTime newStartTime) {
+            if (_canCreateEvent(newStartTime, event.end)) {
+              event.start = newStartTime;
+            }
+          },
+          onEventResizeUpUpdate:
+              (FlutterWeekViewEvent event, DateTime newStartTime) {
+            if (_canCreateEvent(newStartTime, event.end)) {
+              event.start = newStartTime;
+            }
+          },
+          //处理下拉逻辑
+          onEventResizedDown:
+              (FlutterWeekViewEvent event, DateTime newEndTime) {
+            if (_canCreateEvent(event.start, newEndTime)) {
+              event.end = newEndTime;
+            }
+          },
+          onEventResizeDownUpdate:
+              (FlutterWeekViewEvent event, DateTime newEndTime) {
+            if (_canCreateEvent(event.start, newEndTime)) {
+              event.end = newEndTime;
+            }
+          },
+        ),
+        //是否可以拖放
+        dragPredicate: (event) {
+          return event.isNewEvent;
         },
-      ),
-      //调整大小选项
-      resizeEventOptions: ResizeEventOptions(
-        minimumEventDuration: const Duration(minutes: 30),
-        //处理上拉逻辑
-        onEventResizedUp: (FlutterWeekViewEvent event, DateTime newStartTime) {
-          event.start = newStartTime;
+        //是否可以调整大小
+        resizePredicate: (event) {
+          return event.isNewEvent;
         },
-        onEventResizeUpUpdate:
-            (FlutterWeekViewEvent event, DateTime newStartTime) {
-          event.start = newStartTime;
-        },
-        //处理下拉逻辑
-        onEventResizedDown: (FlutterWeekViewEvent event, DateTime newEndTime) {
-          event.end = newEndTime;
-        },
-        onEventResizeDownUpdate:
-            (FlutterWeekViewEvent event, DateTime newEndTime) {
-          event.end = newEndTime;
-        },
-      ),
-      //是否可以拖放
-      dragPredicate: (event) {
-        return event.isNewEvent;
-      },
-      //是否可以调整大小
-      resizePredicate: (event) {
-        return event.isNewEvent;
-      },
-      //背景点击事件
-      onBackgroundTappedDown: (DateTime dateTime) {
-        dateTime = roundTimeToFitGrid(dateTime,
-            gridGranularity: const Duration(minutes: 15));
-        setState(() {
-          events.removeWhere((element) => element.isNewEvent);
-          events.add(
-            FlutterWeekViewEvent(
-              title: NEW_EVENT_TEXT,
-              description: NEW_EVENT_TEXT,
-              padding: EdgeInsets.only(left: 16, right: 16),
-              decoration: () => newEventDecoration(context),
-              eventTextBuilder: createEventTextBuilder,
-              start: dateTime,
-              end: dateTime.add(const Duration(minutes: 30)),
-              isNewEvent: true,
-              onTap: (event) {
-                print('+++++++++++++++++++++onTap');
-              },
-            ),
-          );
-        });
-      },
-    );
+        //背景点击事件
+        onBackgroundTappedDown: _onBackgroundTappedDown);
+  }
+
+  _onBackgroundTappedDown(DateTime dateTime) {
+    var list = pickNewTime(dateTime);
+    for (int i = 0; i < list.length; i++) {
+      if (_canCreateEvent(list[i], list[i].add(Duration(minutes: 30)))) {
+        _createEvent(list[i], list[i].add(Duration(minutes: 30)));
+        break;
+      }
+    }
+  }
+
+  bool _canCreateEvent(DateTime newEventStart, DateTime newEventEnd) {
+    // if (!newEventStart.isAfter(DateTime.now())) {
+    //   print('++++++++_canCreateEvent,return 00');
+    //   return false;
+    // }
+
+    if (!newEventEnd.isAfter(newEventStart)) {
+      print('++++++++_canCreateEvent,return 11');
+      return false;
+    }
+    if (!DateUtils.isSameDay(newEventStart, DateTime.now())) {
+      print('++++++++_canCreateEvent,return 22');
+      return false;
+    }
+
+    if (!DateUtils.isSameDay(newEventEnd, DateTime.now()) &&
+        !(newEventEnd.hour == 0 &&
+            newEventEnd.minute == 0 &&
+            newEventEnd.second == 0)) {
+      print('++++++++_canCreateEvent,return 33');
+      return false;
+    }
+    for (int i = 0; i < events.length; i++) {
+      var event = events[i];
+      if (event.isNewEvent) {
+        continue;
+      }
+      if ((newEventStart.isAfter(event.end) ||
+              newEventStart.isAtSameMomentAs(event.end)) ||
+          (newEventEnd.isBefore(event.start) ||
+              newEventEnd.isAtSameMomentAs(event.start))) {
+        continue;
+      }
+      return false;
+    }
+
+    return true;
+  }
+
+  _createEvent(DateTime start, DateTime end) {
+    setState(() {
+      events.removeWhere((element) => element.isNewEvent);
+      events.add(
+        FlutterWeekViewEvent(
+          title: NEW_EVENT_TEXT,
+          description: NEW_EVENT_TEXT,
+          padding: EdgeInsets.only(left: 16, right: 16),
+          decoration: () => newEventDecoration(context),
+          eventTextBuilder: createEventTextBuilder,
+          start: start,
+          end: end,
+          isNewEvent: true,
+          onTap: (event) {
+            print('+++++++++++++++++++++onTap:${event.start},${event.end}');
+          },
+        ),
+      );
+    });
   }
 }

@@ -79,21 +79,6 @@ Widget createEventTextBuilder(FlutterWeekViewEvent event, BuildContext context,
   print(
       '++++++++++++++++++++++++++DayView,createEventTextBuilder,height:${height}, width: ${width}');
   var row = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-    // Expanded(
-    //   child: Text(
-    //     "${dayView.hoursColumnStyle.timeFormatter(HourMinute.fromDateTime(dateTime: event.start))}—${dayView.hoursColumnStyle.timeFormatter(HourMinute.fromDateTime(dateTime: event.end))} 共${event.end.difference(event.start).inMinutes}分钟",
-    //     overflow: TextOverflow.ellipsis,
-    //     style: TextStyle(
-    //       color: Theme.of(context).twColors.primary!,
-    //       fontSize: 14,
-    //       fontWeight: FontWeight.w400,
-    //       height: 1.5,
-    //     ),
-    //   ),
-    // ),
-    // SizedBox(
-    //   width: 6,
-    // ),
     Text(
       "预定会议室",
       overflow: TextOverflow.ellipsis,
@@ -142,4 +127,44 @@ Widget createEventTextBuilder(FlutterWeekViewEvent event, BuildContext context,
           ),
         ],
       ));
+}
+
+DateTime adjustDateTime(DateTime dateTime) {
+  var newDateTime = roundTimeToFitGrid(dateTime,
+      gridGranularity: const Duration(minutes: 15));
+  if (dateTime.isAfter(DateTime.now()) &&
+      !newDateTime.isAfter(DateTime.now())) {
+    newDateTime = newDateTime.add(const Duration(minutes: 15));
+  }
+  return newDateTime;
+}
+
+List<DateTime> pickNewTime(DateTime dateTime) {
+  List<DateTime> list = [];
+
+  bool canUse(DateTime newDateTime, DateTime preDateTime) {
+    if (preDateTime.isAfter(DateTime.now())) {
+      return DateUtils.isSameDay(preDateTime, newDateTime) &&
+          !preDateTime.isBefore(DateUtils.dateOnly(newDateTime));
+    }
+    return false;
+  }
+
+  var newDateTime = adjustDateTime(dateTime);
+  debugPrint(
+      '++++++++++++++++++newEvent 11,onTap:pickNewTime,newDateTime:${newDateTime}');
+  list.add(newDateTime);
+
+  var d1 = newDateTime.subtract(const Duration(minutes: 15));
+  if (canUse(newDateTime, d1)) {
+    list.add(d1);
+  }
+  if (newDateTime.isAfter(dateTime)) {
+    var d2 = newDateTime.subtract(const Duration(minutes: 30));
+    if (canUse(newDateTime, d2)) {
+      list.add(d2);
+    }
+  }
+  print('+++++++++++++++++++++pickNewTime,list:$list');
+  return list;
 }
