@@ -136,7 +136,7 @@ class _DynamicDayViewState extends State<DynamicDayView> {
         ),
         interval: const Duration(hours: 1),
       ),
-      //拖拽选项
+      //拖放选项
       dragAndDropOptions: DragAndDropOptions(
         startingGesture: isMobilePlatform()
             ? DragStartingGesture.longPress

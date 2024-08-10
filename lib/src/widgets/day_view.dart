@@ -139,7 +139,6 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
   }
 
   void _updateCurrentTime(){
-    debugPrint('++++++++++++updateCurrentTime');
     final DateTime today = DateTime.now();
     if(DateUtils.isSameDay(widget.date, today)) {
       _currentTimeNotifier.value =
@@ -157,7 +156,6 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
       mainWidget = DragTarget<FlutterWeekViewEvent>(
         builder: (_, __, ___) => createMainWidget(),
         onMove: (details){
-          debugPrint('+++++++++++++++DragTarget onMove');
           RenderBox renderBox = context.findRenderObject() as RenderBox;
           Offset localOffset = renderBox.globalToLocal(details.offset);
           Offset correctedOffset = Offset(localOffset.dx, localOffset.dy + (verticalScrollController?.offset ?? 0) - widget.style.headerSize - widget.padding.top);
@@ -170,7 +168,6 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
           widget.timeRangeEndNotifier?.value = details.data.end.add(newStartTime.difference(details.data.start));
         },
         onAcceptWithDetails: (details) {
-          debugPrint('+++++++++++++++DragTarget onAcceptWithDetails');
           // Drag details contains the global position of the drag event. First,
           // we convert it to a local position on the widget.
           RenderBox renderBox = context.findRenderObject() as RenderBox;
@@ -193,7 +190,6 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
           });
         },
         onLeave: (event){
-          debugPrint('+++++++++++++++DragTarget onLeave');
           if(event!=null) {
             widget.timeRangeStartNotifier?.value = event.start;
             widget.timeRangeEndNotifier?.value = event.end;
