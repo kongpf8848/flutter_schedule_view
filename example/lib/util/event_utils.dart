@@ -15,7 +15,7 @@ extension FlutterEventExtension on FlutterWeekViewEvent {
 BoxDecoration meetingEventDecoration(BuildContext context) {
   return BoxDecoration(
       color: isLight(context)
-          ? TWColors.blue.shade100
+          ? Theme.of(context).twColors.primary!.withOpacity(0.25)
           : TWColors.blue.shade600.withOpacity(0.25),
       border: Border.all(
           color: Theme.of(context).twColors.primaryBackgroundColor!,
@@ -25,7 +25,7 @@ BoxDecoration meetingEventDecoration(BuildContext context) {
 BoxDecoration newEventDecoration(BuildContext context) {
   return BoxDecoration(
     color: isLight(context)
-        ? TWColors.blue.shade100
+        ? Theme.of(context).twColors.primary!.withOpacity(0.25)
         : TWColors.blue.shade600.withOpacity(0.25),
     border: Border.all(
       color: Theme.of(context).twColors.primary!,
