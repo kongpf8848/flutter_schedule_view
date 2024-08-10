@@ -75,7 +75,7 @@ class _DynamicDayViewState extends State<DynamicDayView> {
             ),
           ),
           Text(
-            "${DateFormat('M月d日(E)').format(DateTime.now())}",
+            "${DateFormat('yyyy年M月d日(E)').format(DateTime.now())}",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Theme.of(context).twColors.primaryTextColor,
