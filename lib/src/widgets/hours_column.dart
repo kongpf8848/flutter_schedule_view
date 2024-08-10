@@ -112,6 +112,10 @@ class HoursColumn extends StatelessWidget {
         return const SizedBox.shrink();
       }
       var time = HourMinute.fromDateTime(dateTime: dateTime);
+      //fix bug
+      if((time == HourMinute.zero) && dateTime.isAtSameMomentAs(endTimeNotifier.value!)){
+        time=HourMinute.max;
+      }
       return Positioned(
         top: topOffsetCalculator(time) - TextUtils
             .getTextSize(style.timeFormatter(time), style.timeRangeTextStyle)
