@@ -57,7 +57,6 @@ class DayViewStyle extends ZoomableHeaderWidgetStyle {
 
   /// Creates a new day view style instance.
   const DayViewStyle({
-    double? headerSize,
     double? hourRowHeight,
     Color? backgroundColor,
     this.backgroundRulesColor = const Color(0x1A000000),
@@ -73,12 +72,11 @@ class DayViewStyle extends ZoomableHeaderWidgetStyle {
         currentTimeRuleHeight = (currentTimeRuleHeight ?? 1) < 0 ? 0 : (currentTimeRuleHeight ?? 1),
         currentTimeCircleRadius = (currentTimeCircleRadius ?? 7.5) < 0 ? 0 : (currentTimeCircleRadius ?? 7.5),
         currentTimeCirclePosition = currentTimeCirclePosition ?? CurrentTimeCirclePosition.right,
-        super(headerSize: headerSize);
+        super();
 
   /// Allows to automatically customize the day view background color according to the specified date.
   DayViewStyle.fromDate({
     required DateTime date,
-    double? headerSize,
     double? hourRowHeight,
     Color backgroundRulesColor = const Color(0x1A000000),
     Color currentTimeRuleColor = Colors.pink,
@@ -87,7 +85,6 @@ class DayViewStyle extends ZoomableHeaderWidgetStyle {
     double? currentTimeCircleRadius,
     CurrentTimeCirclePosition? currentTimeCirclePosition,
   }) : this(
-          headerSize: headerSize,
           hourRowHeight: hourRowHeight,
           backgroundColor: Utils.sameDay(date) ? const Color(0xFFE3F5FF) : null,
           backgroundRulesColor: backgroundRulesColor,
@@ -100,7 +97,6 @@ class DayViewStyle extends ZoomableHeaderWidgetStyle {
 
   /// Allows to copy the current style instance with your own properties.
   DayViewStyle copyWith({
-    double? headerSize,
     double? hourRowHeight,
     Color? backgroundColor,
     Color? backgroundRulesColor,
@@ -111,7 +107,6 @@ class DayViewStyle extends ZoomableHeaderWidgetStyle {
     CurrentTimeCirclePosition? currentTimeCirclePosition,
   }) =>
       DayViewStyle(
-        headerSize: headerSize ?? this.headerSize,
         hourRowHeight: hourRowHeight ?? this.hourRowHeight,
         backgroundColor: backgroundColor ?? this.backgroundColor,
         backgroundRulesColor: backgroundRulesColor ?? this.backgroundRulesColor,

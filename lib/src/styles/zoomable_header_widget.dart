@@ -12,11 +12,7 @@ typedef VerticalDividerBuilder = VerticalDivider Function(DateTime date);
 
 /// Allows to style a zoomable header widget style.
 class ZoomableHeaderWidgetStyle {
-  /// The header size (usually limited to the day bar). Defaults to 60.
-  final double headerSize;
 
   /// Creates a new zoomable header widget style instance.
-  const ZoomableHeaderWidgetStyle({
-    double? headerSize,
-  }) : headerSize = (headerSize ?? 40) < 0 ? 0 : (headerSize ?? 40);
+  const ZoomableHeaderWidgetStyle();
 }

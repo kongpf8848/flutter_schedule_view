@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_schedule_view/src/event.dart';
-import 'package:flutter_schedule_view/src/styles/day_bar.dart';
 import 'package:flutter_schedule_view/src/styles/day_view.dart';
 import 'package:flutter_schedule_view/src/styles/hours_column.dart';
 import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
@@ -124,9 +123,6 @@ class DefaultBuilders {
 
   /// The default day view style builder.
   static DayViewStyle defaultDayViewStyleBuilder(DateTime date) => DayViewStyle.fromDate(date: date);
-
-  /// The default day view style builder.
-  static DayBarStyle defaultDayBarStyleBuilder(DateTime date) => DayBarStyle.fromDate(date: date);
 
   /// Returns whether this input exceeds the specified height.
   static bool? _exceedHeight(List<TextSpan> input, TextStyle? textStyle, double height, double width) {

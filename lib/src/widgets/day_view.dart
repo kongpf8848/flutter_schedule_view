@@ -4,7 +4,6 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter_schedule_view/src/controller/day_view.dart';
 import 'package:flutter_schedule_view/src/event.dart';
-import 'package:flutter_schedule_view/src/styles/day_bar.dart';
 import 'package:flutter_schedule_view/src/styles/day_view.dart';
 import 'package:flutter_schedule_view/src/styles/hours_column.dart';
 import 'package:flutter_schedule_view/src/utils/builders.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_schedule_view/src/utils/event_grid.dart';
 import 'package:flutter_schedule_view/src/utils/hour_minute.dart';
 import 'package:flutter_schedule_view/src/utils/scroll.dart';
 import 'package:flutter_schedule_view/src/utils/utils.dart';
-import 'package:flutter_schedule_view/src/widgets/day_bar.dart';
 import 'package:flutter_schedule_view/src/widgets/hours_column.dart';
 import 'package:flutter_schedule_view/src/widgets/zoomable_header_widget.dart';
 
@@ -25,9 +23,6 @@ class DayView extends ZoomableHeadersWidget<DayViewStyle, DayViewController> {
   /// The day view date.
   final DateTime date;
 
-  /// The day bar style.
-  final DayBarStyle dayBarStyle;
-
   /// Creates a new day view instance.
   DayView({
     super.key,
@@ -35,7 +30,6 @@ class DayView extends ZoomableHeadersWidget<DayViewStyle, DayViewController> {
     required DateTime date,
     DayViewStyle? style,
     super.hoursColumnStyle = const HoursColumnStyle(),
-    DayBarStyle? dayBarStyle,
     DayViewController? controller,
     super.inScrollableWidget,
     super.isRTL,
@@ -47,7 +41,6 @@ class DayView extends ZoomableHeadersWidget<DayViewStyle, DayViewController> {
     super.hoursColumnTimeBuilder,
     super.hoursColumnBackgroundBuilder,
     super.onHoursColumnTappedDown,
-    super.onDayBarTappedDown,
     super.onBackgroundTappedDown,
     super.dragAndDropOptions,
     super.resizeEventOptions,
@@ -56,7 +49,6 @@ class DayView extends ZoomableHeadersWidget<DayViewStyle, DayViewController> {
     super.padding,
     super.showTimeRangeText,
   })  : date = date.yearMonthDay,
-        dayBarStyle = dayBarStyle ?? DayBarStyle.fromDate(date: date),
         super(
           style: style ?? DayViewStyle.fromDate(date: date),
           controller: controller ?? DayViewController(),
@@ -158,7 +150,7 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
         onMove: (details){
           RenderBox renderBox = context.findRenderObject() as RenderBox;
           Offset localOffset = renderBox.globalToLocal(details.offset);
-          Offset correctedOffset = Offset(localOffset.dx, localOffset.dy + (verticalScrollController?.offset ?? 0) - widget.style.headerSize - widget.padding.top);
+          Offset correctedOffset = Offset(localOffset.dx, localOffset.dy + (verticalScrollController?.offset ?? 0) - widget.padding.top);
           DateTime newStartTime = widget.date.add(calculateOffsetHourMinute(correctedOffset).asDuration);
           if(widget.resizeEventOptions!=null) {
             newStartTime= roundTimeToFitGrid(newStartTime,
@@ -178,7 +170,7 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
           // at the first row of pixels still gives localOffset.dy = 0, so we
           // add the scroll offset to get the proper value for "5:00". We also
           // adjust for the header.
-          Offset correctedOffset = Offset(localOffset.dx, localOffset.dy + (verticalScrollController?.offset ?? 0) - widget.style.headerSize - widget.padding.top);
+          Offset correctedOffset = Offset(localOffset.dx, localOffset.dy + (verticalScrollController?.offset ?? 0) - widget.padding.top);
 
           DateTime newStartTime = widget.date.add(calculateOffsetHourMinute(correctedOffset).asDuration);
           widget.dragAndDropOptions!.onEventDragged(details.data, newStartTime);
@@ -195,30 +187,6 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
             widget.timeRangeEndNotifier?.value = event.end;
           }
         },
-      );
-    }
-
-    if (widget.style.headerSize > 0) {
-      mainWidget = Stack(
-        children: [
-          mainWidget,
-          Positioned(
-            top: 0,
-            left: widget.isRTL ? 0 : widget.hoursColumnStyle.width,
-            right: widget.isRTL ? widget.hoursColumnStyle.width : 0,
-            child: DayBar.fromHeadersWidgetState(
-              parent: widget,
-              date: widget.date,
-              style: widget.dayBarStyle,
-              width: double.infinity,
-            ),
-          ),
-          Container(
-            height: widget.style.headerSize,
-            width: widget.hoursColumnStyle.width,
-            color: widget.dayBarStyle.color,
-          ),
-        ],
       );
     }
 
@@ -301,10 +269,7 @@ class _DayViewState extends ZoomableHeadersWidgetState<DayView> {
       );
     }
 
-    return Padding(
-      padding: EdgeInsets.only(top: widget.style.headerSize),
-      child: mainWidget,
-    );
+    return mainWidget;
   }
 
   Widget? buildResizeUpGestureDetector(FlutterWeekViewEvent event,) {

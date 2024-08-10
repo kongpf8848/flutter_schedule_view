@@ -83,7 +83,6 @@ DayView(
     backgroundColor: Colors.white,
     //每个小时高度
     hourRowHeight: 60,
-    headerSize: 0,
     //分割线颜色
     backgroundRulesColor: Color(0xFFE5E5E5),
     currentTimeRuleColor: Colors.blue,

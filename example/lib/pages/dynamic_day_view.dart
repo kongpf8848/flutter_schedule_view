@@ -103,7 +103,6 @@ class _DynamicDayViewState extends State<DynamicDayView> {
         backgroundColor: Theme.of(context).twColors.primaryBackgroundColor,
         //每个小时行高度
         hourRowHeight: 60,
-        headerSize: 0,
         //分割线颜色
         backgroundRulesColor: Theme.of(context).twColors.dividerBackgroundColor,
         currentTimeRuleColor: Theme.of(context).twColors.primary,

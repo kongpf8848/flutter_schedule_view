@@ -17,9 +17,6 @@ typedef TopOffsetCalculator = double Function(HourMinute time);
 /// Triggered when the hours column has been tapped down.
 typedef HoursColumnTapCallback = Function(HourMinute time);
 
-/// Triggered when the day bar has been tapped down.
-typedef DayBarTapCallback = Function(DateTime date);
-
 /// Triggered when there's a click on the background (an empty region of the calendar). The returned
 /// value corresponds to the hour/minute where the user made the tap. For better user experience,
 /// you may want to round this value using [roundTimeToFitGrid].
@@ -71,9 +68,6 @@ abstract class ZoomableHeadersWidget<S extends ZoomableHeaderWidgetStyle, C exte
   /// Triggered when the hours column has been tapped down.
   final HoursColumnTapCallback? onHoursColumnTappedDown;
 
-  /// Triggered when the day bar has been tapped down.
-  final DayBarTapCallback? onDayBarTappedDown;
-
   /// Triggered when there's a click on the background (an empty region of the calendar). The returned
   /// value corresponds to the hour/minute where the user made the tap. For better user experience,
   /// you may want to round this value using [roundTimeToFitGrid].
@@ -119,7 +113,6 @@ abstract class ZoomableHeadersWidget<S extends ZoomableHeaderWidgetStyle, C exte
     this.userZoomable = true,
     this.currentTimeIndicatorBuilder = DefaultBuilders.defaultCurrentTimeIndicatorBuilder,
     this.onHoursColumnTappedDown,
-    this.onDayBarTappedDown,
     this.onBackgroundTappedDown,
     this.dragAndDropOptions,
     this.resizeEventOptions,
@@ -184,7 +177,7 @@ abstract class ZoomableHeadersWidgetState<W extends ZoomableHeadersWidget> exten
 
     double hourRowHeight = _calculateHourRowHeight(controller);
     double widgetHeight = (context.findRenderObject() as RenderBox).size.height;
-    double maxPixels = calculateHeight(hourRowHeight) - widgetHeight + widget.style.headerSize;
+    double maxPixels = calculateHeight(hourRowHeight) - widgetHeight;
 
     if (verticalScrollController != null) {
       verticalScrollController!.jumpTo(math.min(maxPixels, controller.contentOffset * controller.zoomFactor - details.localFocalPoint.dy));
