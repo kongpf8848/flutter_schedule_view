@@ -25,7 +25,7 @@
 将以下依赖添加到项目的```pubspec.yaml```文件中：
 ```dart
 dependencies:
-  flutter_schedule_view: ^0.1.0
+  flutter_schedule_view: ^0.2.0
 ```
 
 ## 使用
