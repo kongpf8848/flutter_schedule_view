@@ -128,7 +128,7 @@ DayView(
       event.shiftEventTo(roundedTime);
     },
   ),
-  //缩放选项
+  //调整大小选项
   resizeEventOptions: ResizeEventOptions(
     minimumEventDuration: const Duration(minutes: 30),
     //处理上拉逻辑
@@ -152,7 +152,7 @@ DayView(
   dragPredicate: (event) {
     return event.isNewEvent;
   },
-  //是否可以缩放
+  //是否可以调整大小
   resizePredicate: (event) {
     return event.isNewEvent;
   },
