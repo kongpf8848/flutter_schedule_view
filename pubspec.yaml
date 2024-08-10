@@ -1,6 +1,6 @@
 name: flutter_schedule_view
 description: a flutter library for displaying highly customizable calendar events within your app.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/kongpf8848/flutter_schedule_view
 
 environment:
