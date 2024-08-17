@@ -2,7 +2,8 @@
 
 一个功能丰富的Flutter日视图控件，支持高度定制的事件列表显示、拖拽、调整大小等功能。
 
-本项目的原始代码来自[FlutterWeekView](https://github.com/Skyost/FlutterWeekView)
+[![pub package](https://img.shields.io/pub/v/flutter_schedule_view?label=flutter_schedule_view&color=green)](https://pub.dev/packages/flutter_schedule_view)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/kongpf8848/flutter_schedule_view/blob/main/LICENSE)
 
 ## 截图
 
